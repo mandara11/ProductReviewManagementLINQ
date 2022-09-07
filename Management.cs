@@ -236,5 +236,31 @@ namespace ProductReviewManagement
                 Console.WriteLine(ex.Message);
             }
         }
+
+        /*UC12:Add some 5 to 6 records for Userid=10 in the datatable
+              -Retreive all records from the list who’s Userid =10 and order by rating using LINQ.*/
+        public static void RetrieveRecordsForGivenUserIdOrderByRating() //create method RetrieveRecordsForGivenUserIdOrderByRating
+        {
+            try
+            {
+                CreateDataTable();
+                // Query syntax for LINQ                   
+                var retrievedData = from records in table.AsEnumerable()
+                                    where (records.Field<int>("UserId") == 10)
+                                    orderby records.Field<double>("Rating") descending
+                                    select records;
+                Console.WriteLine("\nSorted records by rating  with userId=10"); //print
+                foreach (var list in retrievedData) //iterates values
+                {
+                    Console.WriteLine("ProductId:- " + list.Field<int>("ProductId") + "\t" + "UserId:-" + list.Field<int>("UserId") + "\t"
+                        + "Rating:-" + list.Field<double>("Rating") + "\t" + "Review:-" + list.Field<string>("Review") + "\t" + "IsLike:-"
+                        + list.Field<bool>("isLike"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

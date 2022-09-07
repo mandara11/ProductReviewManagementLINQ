@@ -69,6 +69,9 @@ namespace ProductReviewManagement
 
             //UC11
             Management.RetrieveRecordsWithReviewContainsNice();
+
+            //UC12
+            Management.RetrieveRecordsForGivenUserIdOrderByRating();
         }
         public static void CreateDataTable() //create method
         {
