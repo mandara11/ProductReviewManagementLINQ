@@ -33,5 +33,21 @@ namespace ProductReviewManagement
                 Console.WriteLine($"ProductId:- {elements.ProductId} UserId:- {elements.UserId} Rating:- {elements.Rating} Review:- {elements.Review} isLike:- {elements.IsLike}");
             }
         }
+
+        /*UC3:- Retrieve all record from the list who’s rating are greater than 3 and 
+                productID is 1 or 4 or 9 using LINQ.*/
+        
+        public static void RetrieveRecordsWithGreaterThanThreeRating(List<ProductReview> productReviewList)
+        {           //Query syntax for LINQ 
+            var RecordedData = (from productReviews in productReviewList
+                                where (productReviews.ProductId == 1 || productReviews.ProductId == 4 || productReviews.ProductId == 9)
+                                && productReviews.Rating > 3
+                                select productReviews);
+            Console.WriteLine("\nProducts with Rating Greater than 3 and productID = 1 or 4 or 9 are:- ");
+            foreach (var List in RecordedData)
+            {
+                Console.WriteLine($"ProductId:- {List.ProductId}   || UserId:- {List.UserId}   || Rating:- {List.Rating}   || Review:- {List.Review}   ||   IsLike:- {List.IsLike}"); //Print data
+            }
+        }
     }
 }

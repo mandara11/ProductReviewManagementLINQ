@@ -42,6 +42,9 @@ namespace ProductReviewManagement
 
             //UC2
             Management.RetrieveTop3records(productReviewList);
+
+            //UC3
+            Management.RetrieveRecordsWithGreaterThanThreeRating(productReviewList);
         }
         public static void CreateDataTable() //create method
         {
