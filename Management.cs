@@ -93,7 +93,25 @@ namespace ProductReviewManagement
                 Console.WriteLine("\n Skiping the Top five records and Display others ");
                 foreach (var productReview in RecordedData) //traversing each items
                 {
-                    Console.WriteLine($"ProductId:- {productReview.ProductId}\tUserId:- {productReview.UserId}\tRating:- {productReview.Rating}\t  Review:- {productReview.Review}  \t    isLike:- {productReview.isLike}");
+                    Console.WriteLine($"ProductId:- {productReview.ProductId}\tUserId:- {productReview.UserId}\tRating:- {productReview.Rating}\t  Review:- {productReview.Review}  \t    isLike:- {productReview.IsLike}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        //*UC7:- Retrieve only productId and review from the list for all records using LINQ select operator.
+        public static void RetrieveProductIDAndReviewUsingLambdaSyntax(List<ProductReview> productReviewList)
+        {
+            try
+            {                // Query syntax for LINQ 
+                var RecordedData = productReviewList.Select(reviews => new { ProductId = reviews.ProductId, Review = reviews.Review });
+                Console.WriteLine("\nRetrieving Product and Review from list");
+                foreach (var productReview in RecordedData) //traversing each items
+                {
+                    Console.WriteLine($"ProductId:- {productReview.ProductId}\tReview:- {productReview.Review}");
                 }
             }
             catch (Exception ex)
