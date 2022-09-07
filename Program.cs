@@ -60,6 +60,9 @@ namespace ProductReviewManagement
 
             //UC8
             Management.CreateDataTable();
+
+            //UC9
+            Management.RetrieveRecordWithTrueIsLike();
         }
         public static void CreateDataTable() //create method
         {
