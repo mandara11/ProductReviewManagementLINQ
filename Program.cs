@@ -48,6 +48,9 @@ namespace ProductReviewManagement
 
             //UC4
             Management.RetrieveCountOfReviewForEachProductId(productReviewList);
+
+            //UC5
+            Management.RetrieveProductIDAndReviewOfAllRecords(productReviewList);
         }
         public static void CreateDataTable() //create method
         {

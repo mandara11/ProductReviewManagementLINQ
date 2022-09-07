@@ -61,5 +61,26 @@ namespace ProductReviewManagement
                 Console.WriteLine($"ProductId:- {List.ProductId}   || Count :- {List.Count}"); //Print data
             }
         }
+
+        /* UC5:- Retrieve only productId and review from the list for all Records. 
+               - Use select LINQ Operator.*/
+        public static void RetrieveProductIDAndReviewOfAllRecords(List<ProductReview> productReviewList)
+        {
+            try
+            {
+                //Query syntax for LINQ 
+                var RecordedData = (from products in productReviewList
+                                    select new { ProductId = products.ProductId, Review = products.Review });
+                Console.WriteLine("Retrieving Product and Review from list:-");
+                foreach (var productReview in RecordedData) //traversing each items
+                {
+                    Console.WriteLine($"ProductID:-  {productReview.ProductId}  \t Review:-  {productReview.Review}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
