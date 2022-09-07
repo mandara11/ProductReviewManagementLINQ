@@ -39,6 +39,9 @@ namespace ProductReviewManagement
             Management management = new Management();
             //UC1
             management.IterateProductReview(productReviewList);
+
+            //UC2
+            Management.RetrieveTop3records(productReviewList);
         }
         public static void CreateDataTable() //create method
         {
