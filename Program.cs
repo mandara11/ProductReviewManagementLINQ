@@ -66,6 +66,9 @@ namespace ProductReviewManagement
 
             //UC10
             Management.FindAverageRatingOfTheEachProductId();
+
+            //UC11
+            Management.RetrieveRecordsWithReviewContainsNice();
         }
         public static void CreateDataTable() //create method
         {

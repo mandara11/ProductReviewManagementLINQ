@@ -211,5 +211,30 @@ namespace ProductReviewManagement
                 Console.WriteLine(ex.Message);
             }
         }
+
+        //UC11:Retreive all records from the list who’s review message contain “nice” in it using LINQ.  
+        public static void RetrieveRecordsWithReviewContainsNice()
+        {
+            try
+            {
+                CreateDataTable(); //UC8 call CreateDataTable method 
+                                   // Query syntax for LINQ 
+                var retrieveData = from records in table.AsEnumerable()
+                                   where (records.Field<string>("Review") == "Nice")
+                                   select records;
+                //Printing data
+                Console.WriteLine("\nRecords in table Whose Review contains Nice:");
+                foreach (var list in retrieveData)
+                {
+                    Console.WriteLine("ProductId:- " + list.Field<int>("ProductId") + "\t" + "UserId:-" + list.Field<int>("UserId") + "\t"
+                        + "Rating:-" + list.Field<double>("Rating") + "\t" + "Review:-" + list.Field<string>("Review") + "\t" + "IsLike:-"
+                        + list.Field<bool>("isLike"));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
