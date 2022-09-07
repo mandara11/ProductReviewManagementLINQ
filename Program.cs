@@ -45,6 +45,9 @@ namespace ProductReviewManagement
 
             //UC3
             Management.RetrieveRecordsWithGreaterThanThreeRating(productReviewList);
+
+            //UC4
+            Management.RetrieveCountOfReviewForEachProductId(productReviewList);
         }
         public static void CreateDataTable() //create method
         {
