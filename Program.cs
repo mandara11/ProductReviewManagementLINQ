@@ -57,6 +57,9 @@ namespace ProductReviewManagement
 
             //UC7
             Management.RetrieveProductIDAndReviewUsingLambdaSyntax(productReviewList);
+
+            //UC8
+            Management.CreateDataTable();
         }
         public static void CreateDataTable() //create method
         {
